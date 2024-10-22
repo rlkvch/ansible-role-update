@@ -1,0 +1,27 @@
+---
+# tasks file for os-update
+
+- name: Update host software on Debian family
+  import_tasks: debian.yml
+  when:
+    - ansible_facts['os_family'] == 'Debian'
+
+- name: Update host software on RedHat family
+  import_tasks: redhat.yml
+  when:
+    - ansible_facts['os_family'] == 'RedHat'
+
+- name: Update host software on SUSE family
+  import_tasks: suse.yml
+  when:
+    - ansible_facts['os_family'] == 'Suse'
+
+- name: Update host software on Arch family
+  import_tasks: arch.yml
+  when:
+    - ansible_facts['os_family'] == 'Archlinux'
+
+- name: Update host software on Alpine family
+  import_tasks: alpine.yml
+  when:
+    - ansible_facts['os_family'] == 'Alpine'
